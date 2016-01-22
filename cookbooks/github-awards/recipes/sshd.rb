@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-openssh_server node['sshd']['config_file'] do
-  PermitRootLogin no
-  PasswordAuthentication no
+execute 'setup_sshd' do
+  command 'echo "foo" >> node["sshd"]["config_file"]'
 end
+
