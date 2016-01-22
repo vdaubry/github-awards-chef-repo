@@ -6,6 +6,8 @@ tags
 */tags
 *~
 .chef
+.chef/*.pem
+.chef/syntaxcache/*
 
 # You should check in your Gemfile.lock in applications, and not in gems
 # This also matches Berksfile.lock
