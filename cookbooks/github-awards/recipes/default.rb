@@ -23,3 +23,9 @@ apt_package "htop tmux fail2ban"
 apt_package "software-properties-common git"
 apt_package "ruby2.2 ruby2.2-dev build-essential zlib1g-dev libpq-dev nodejs"
 gem_package 'bundler'
+
+reboot 'app_requires_reboot' do
+  action :request_reboot
+  reason 'Need to reboot when the run completes successfully.'
+  delay_mins 1
+end
