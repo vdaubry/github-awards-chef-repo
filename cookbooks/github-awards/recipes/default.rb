@@ -7,6 +7,8 @@
 include_recipe 'apt::default'
 include_recipe 'github-awards::user'
 include_recipe 'github-awards::sshd'
+include_recipe 'github-awards::language'
+include_recipe 'github-awards::security_updates'
 
 apt_repository "ruby" do
   uri "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu"
@@ -16,7 +18,7 @@ apt_repository "ruby" do
   keyserver 'keyserver.ubuntu.com'
 end
 
-apt_package "htop tmux"
+apt_package "htop tmux fail2ban"
 apt_package "software-properties-common git"
 apt_package "ruby2.2 ruby2.2-dev build-essential zlib1g-dev libpq-dev nodejs"
 gem_package 'bundler'

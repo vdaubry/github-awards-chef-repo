@@ -8,4 +8,5 @@ version '0.1.0'
 
 depends 'apt',                  '~> 2.9.2'
 depends 'ssh_authorized_keys',  '~> 0.3.0'
-depends 'line', '~> 0.6.3'
+depends 'line',                 '~> 0.6.3'
+depends 'swap',                 '~> 0.3.8'
