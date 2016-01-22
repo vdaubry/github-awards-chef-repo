@@ -1,6 +1,6 @@
 name 'github-awards'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'vdaubry'
+maintainer_email 'vdaubry@gmail.com'
 license 'all_rights'
 description 'Installs/Configures github-awards'
 long_description 'Installs/Configures github-awards'
