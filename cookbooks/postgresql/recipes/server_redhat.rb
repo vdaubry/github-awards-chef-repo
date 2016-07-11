@@ -47,22 +47,18 @@ directory node['postgresql']['config']['data_directory'] do
 end
 
 node['postgresql']['server']['packages'].each do |pg_pack|
-
   package pg_pack
-
 end
 
 # If using PGDG, add symlinks so that downstream commands all work
-if node['postgresql']['enable_pgdg_yum'] == true
+if node['postgresql']['enable_pgdg_yum'] == true || node['postgresql']['use_pgdg_packages'] == true
   [
     "postgresql#{shortver}-setup",
     "postgresql#{shortver}-check-db-dir"
   ].each do |cmd|
-
     link "/usr/bin/#{cmd}" do
       to "/usr/pgsql-#{node['postgresql']['version']}/bin/#{cmd}"
     end
-
   end
 end
 
@@ -86,6 +82,21 @@ unless node['postgresql']['server']['init_package'] == 'systemd'
 end
 
 if node['postgresql']['server']['init_package'] == 'systemd'
+
+  if node['platform_family'] == 'rhel'
+    template '/etc/systemd/system/postgresql.service' do
+      source 'postgresql.service.erb'
+      owner 'root'
+      group 'root'
+      mode '0644'
+      notifies :run, 'execute[systemctl-reload]', :immediately
+      notifies :reload, 'service[postgresql]', :delayed
+    end
+    execute 'systemctl-reload' do
+      command 'systemctl daemon-reload'
+      action :nothing
+    end
+  end
 
   case node['platform_family']
   when 'suse'
