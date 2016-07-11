@@ -10,6 +10,7 @@ include_recipe 'github-awards::sshd'
 include_recipe 'github-awards::language'
 include_recipe 'github-awards::security_updates'
 include_recipe 'github-awards::swap'
+include_recipe 'github-awards::postgres'
 
 apt_repository "ruby" do
   uri "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu"
