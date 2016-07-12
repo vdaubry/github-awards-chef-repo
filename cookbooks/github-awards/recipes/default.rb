@@ -16,6 +16,7 @@ include_recipe 'github-awards::swap'
 include_recipe 'github-awards::postgres'
 include_recipe 'github-awards::redis'
 include_recipe 'github-awards::nginx'
+include_recipe 'github-awards::logrotate'
 
 apt_repository "ruby" do
   uri "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu"
