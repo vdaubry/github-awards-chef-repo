@@ -1,3 +1,11 @@
 source 'https://supermarket.chef.io'
 
 metadata
+
+cookbook 'apt',                  '~> 2.9.2'
+cookbook 'ssh_authorized_keys',  '~> 0.3.0'
+cookbook 'line',                 '~> 0.6.3'
+cookbook 'swap',                 '~> 0.3.8'
+cookbook 'postgresql',           '~> 4.0.0'
+cookbook 'redisio',              '~> 2.4.2'
+cookbook 'nginx',                '~> 2.7.6'
