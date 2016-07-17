@@ -18,5 +18,8 @@ if node['postgresql']['enable_pgdg_apt']
   node.set['postgresql']['client']['packages'] = ["postgresql-client-9.4", "libpq-dev"]
 end
 
-include_recipe "postgresql::ruby"
+#TODO : edit pg_hba.conf
+#node['postgresql']['config']['listen_addresses'] = 'localhost'
+
 include_recipe "postgresql::server"
+include_recipe "postgresql::ruby"
