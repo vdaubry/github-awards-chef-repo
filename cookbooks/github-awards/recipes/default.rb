@@ -42,3 +42,8 @@ reboot 'app_requires_reboot' do
   reason 'Need to reboot when the run completes successfully.'
   delay_mins 1
 end
+
+#Todo : Deal with environment variables : gets secrets from chef data_bag ?
+#Export all environement vars into a .env file
+#then use foreman to export an upstart job
+#=> http://anlek.com/2015/01/using-foreman-with-upstart-capistrano/

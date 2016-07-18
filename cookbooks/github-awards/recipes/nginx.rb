@@ -15,3 +15,5 @@ template '/etc/nginx/sites-available/githubawards' do
   group 'root'
   mode '0755'
 end
+
+execute "sudo ln -sf /etc/nginx/sites-available/githubawards /etc/nginx/sites-enabled/githubawards"
