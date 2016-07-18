@@ -6,8 +6,8 @@
 
 include_recipe "nginx"
 
-execute "sudo rm /etc/nginx/sites-available/default"
-execute "sudo rm /etc/nginx/sites-enabled/default"
+execute "sudo rm -f /etc/nginx/sites-available/default"
+execute "sudo rm -f /etc/nginx/sites-enabled/default"
 
 template '/etc/nginx/sites-available/githubawards' do
   source 'nginx-template.erb'

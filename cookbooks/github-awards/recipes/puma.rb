@@ -15,6 +15,7 @@ file '/srv/www/githubawards/shared/tmp/sockets/puma.sock' do
   owner 'deploy'
   group 'deploy'
   mode '0775'
+  force_unlink true
 end
 
 directory '/srv/www/githubawards/shared/log/' do

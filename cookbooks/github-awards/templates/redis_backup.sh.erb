@@ -1,0 +1,10 @@
+#!usr/bin/env bash
+if [ "$BUCKET_PATH" = "" ]; then
+  echo "BUCKET_PATH is not defined"
+  exit 2
+fi
+
+REDIS_RDB_PATH=/var/redis/6379/dump.rdb
+now=$(date +"%m_%d_%Y")
+echo "Uploading redis backup from $REDIS_RDB_PATH"
+/usr/local/bin/aws s3 cp $REDIS_RDB_PATH s3://$BUCKET_PATH/dump_$now.rdb

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "$BUCKET_PATH" = "" ]; then
+  echo "BUCKET_PATH is not defined"
+  exit 2
+fi
+
+BACKUP_PATH=~/backup
+sh /home/ubuntu/scripts/pg_backup.sh
+backup_name=`ls $BACKUP_PATH | tail -n 1`
+echo "Uploading backup to $BUCKET_PATH"
+/usr/local/bin/aws s3 cp /home/ubuntu/backup/$backup_name s3://$BUCKET_PATH/$backup_name

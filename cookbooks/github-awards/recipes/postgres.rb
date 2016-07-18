@@ -18,9 +18,9 @@ if node['postgresql']['enable_pgdg_apt']
   node.set['postgresql']['client']['packages'] = ["postgresql-client-9.4", "libpq-dev"]
 end
 
-node['postgresql']['config']['listen_addresses'] = '*'
+node.set['postgresql']['config']['listen_addresses'] = '*'
 
-node['postgresql']['pg_hba'] = [{:comment => '# Local connections', :type => 'local', :db => 'all', :user => 'all', :addr => nil, :method => 'trust'}, 
+node.set['postgresql']['pg_hba'] = [{:comment => '# Local connections', :type => 'local', :db => 'all', :user => 'all', :addr => nil, :method => 'trust'}, 
                                 {:comment => '# Remote connections', :type => 'host', :db => 'all', :user => 'all', :addr => "0.0.0.0/0", :method => 'md5'}]
 
 include_recipe "postgresql::server"

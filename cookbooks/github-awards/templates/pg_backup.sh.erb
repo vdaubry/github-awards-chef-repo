@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+DB_NAME="gitubawards_production"
+DB_USER="gitubawards"
+BACKUP_PATH=/home/scripts/backup
+now=$(date +"%m_%d_%Y")
+mkdir -p $BACKUP_PATH
+rm -f $BACKUP_PATH/*
+
+echo "Backup $DB_NAME database in $BACKUP_PATH"
+pg_dump -Fc $DB_NAME -U $DB_USER > $BACKUP_PATH/$DB_NAME_$now.dump
